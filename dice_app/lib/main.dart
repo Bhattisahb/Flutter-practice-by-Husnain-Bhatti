@@ -1,44 +1,39 @@
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(DiceApp());
+int main() {
+  runApp(MyApp());
 }
 
-class DiceApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DiceWithStateful(),
-    );
+
+
+  class MyApp extends StatelessWidget {
+    const MyApp({super.key});
+
+    @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+        home: DiceApp() ,
+
+      );
+    }
   }
-}
 
-class DiceWithStateful extends StatefulWidget {
-  @override
-  _DiceState createState() => _DiceState();
-}
-int n = 0;
-int b=3+n;
-class _DiceState extends State<DiceWithStateful> {
+  class DiceApp extends StatefulWidget {
+    const DiceApp({super.key});
 
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text("Dice Number: $b "), // dynamically shows the current number
-      ),
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            setState(() {
-              b = (b % 6) + 1; // cycle between 1 and 6
-            });
-          },
-          child: Image.asset('images/$b.jpeg'),
-        ),
-      ),
-    );
+    @override
+    State<DiceApp> createState() => _DiceAppState();
   }
-}
+
+  class _DiceAppState extends State<DiceApp> {
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appbar:AppBar(
+          
+        )
+
+      );
+    }
+  }
+
+
+
