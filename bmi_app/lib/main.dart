@@ -46,6 +46,7 @@ class BMI extends StatefulWidget {
 
 class _BMIState extends State<BMI> {
   Gender? selectGender;
+  int sliderheight=180;
   // Color malecolor = activecolor;
   // Color femalecolor = deactivecolor;
   //
@@ -84,7 +85,7 @@ class _BMIState extends State<BMI> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Icon(Icons.male, color: Colors.white),
+                        Icon(Icons.male, color: Colors.white, size: 80,),
                         SizedBox(height: 10),
                         Text(
                           "MALE",
@@ -112,7 +113,7 @@ class _BMIState extends State<BMI> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Icon(Icons.female, color: Colors.white),
+                        Icon(Icons.female, color: Colors.white, size: 80,),
                         SizedBox(height: 10),
                         Text(
                           "FEMALE",
@@ -131,11 +132,52 @@ class _BMIState extends State<BMI> {
         // Middle box (Height section, for example)
         Expanded(
           child: Container(
-            margin: const EdgeInsets.all(15),
+
+            margin: EdgeInsets.all(15),
             decoration: BoxDecoration(
-              color: Colors.white10,
-              borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white10
+
             ),
+            child: Column(
+              children: [
+
+                Text("Height", style: TextStyle(fontSize: 15, color: Colors.white),),
+                Row(
+
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("$sliderheight", style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w700),),
+                    Text("cm", style: TextStyle(fontSize: 15, color: Colors.white),),
+
+
+                  ],
+                ),
+                Slider(
+                    value: sliderheight.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: Colors.redAccent,
+                    inactiveColor: Colors.white12,
+                    onChanged: (double newvalue){
+
+                      setState(() {
+                        sliderheight=newvalue.round();
+                      });
+
+
+                    }
+
+
+
+
+
+
+                )
+              ],
+            ),
+
+
           ),
         ),
 
