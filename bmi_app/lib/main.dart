@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 
 main(){
-  
-     runApp(MyApp());
-  
+
+  runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text("BMI Calculator", style: TextStyle(color: Colors.white),),
+
+
+        ),
+        body: BMI(),
+      ),
+
+    );
   }
 }
 
@@ -28,7 +41,10 @@ class BMI extends StatefulWidget {
 class _BMIState extends State<BMI> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.black,
+
+      body: Text("Body", style: TextStyle(color: Colors.white),),
+    );
   }
 }
-
