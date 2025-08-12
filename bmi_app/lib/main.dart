@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
+const activecolor = Colors.white12;
+const deactivecolor = Colors.white10;
 
-main(){
-
-  runApp(MyApp());
-
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,23 +14,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("BMI Calculator", style: TextStyle(color: Colors.white),),
-
-
+          title: const Text(
+            "BMI Calculator",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
-        body: BMI(),
+        body: const BMI(),
       ),
-
     );
   }
 }
-
 
 class BMI extends StatefulWidget {
   const BMI({super.key});
@@ -41,119 +38,125 @@ class BMI extends StatefulWidget {
 }
 
 class _BMIState extends State<BMI> {
+  Color malecolor = activecolor;
+  Color femalecolor = deactivecolor;
+
+  void updatecolor(int gender) {
+    if (gender == 1) {
+      malecolor = activecolor;
+      femalecolor = deactivecolor;
+    }
+    if (gender == 2) {
+      malecolor = deactivecolor;
+      femalecolor = activecolor;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
-
       children: [
-
-
+        // Top row: Male / Female cards
         Expanded(
           child: Row(
             children: [
-
-              Expanded(child: Container(
-                margin: EdgeInsets.all(15),
-
-                decoration: BoxDecoration(
-                  color: Colors.white10,
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.male, size: 80, color: Colors.white,),
-                    Text("MALE", style: TextStyle(fontSize: 15 , color: Colors.white),),
-
-                  ],
-                ),
-
-
-              )),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(15),
-
-                  decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(10),
-
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      updatecolor(1);
+                    });
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: malecolor,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.male, color: Colors.white),
+                        SizedBox(height: 10),
+                        Text(
+                          "MALE",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-
-                      Icon(Icons.female, size: 80, color: Colors.white,),
-                      Text("FEMALE", style: TextStyle(fontSize: 15 , color: Colors.white),),
-
-
-                    ],
-
-
-                  ),
-
-
                 ),
-              )
-
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      updatecolor(2);
+                    });
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: femalecolor,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.female, color: Colors.white),
+                        SizedBox(height: 10),
+                        Text(
+                          "FEMALE",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
 
-
+        // Middle box (Height section, for example)
         Expanded(
           child: Container(
-            margin: EdgeInsets.all(15),
-
+            margin: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: Colors.white10,
               borderRadius: BorderRadius.circular(10),
-
             ),
           ),
         ),
 
-
+        // Bottom row: Weight / Age cards
         Expanded(
           child: Row(
             children: [
-
-              Expanded(child: Container(
-                margin: EdgeInsets.all(15),
-
-                decoration: BoxDecoration(
-                  color: Colors.white10,
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
-              )),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(15),
-
+                  margin: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     color: Colors.white10,
                     borderRadius: BorderRadius.circular(10),
-
                   ),
                 ),
-              )
-
+              ),
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ],
-
-
-
-
     );
-
-
-
-
-
-
   }
 }
