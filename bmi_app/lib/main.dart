@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'resultfile.dart';
 
 
 const activecolor = Colors.white12;
@@ -278,13 +279,27 @@ class _BMIState extends State<BMI> {
     )
     ],
     ),)
-        , Container(
-         
-          height: 60 ,
-          margin: EdgeInsets.only(top: 10),
-          color: Colors.redAccent,
-          width: double.infinity,
-        ), ],
+       , GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Result(
+
+                ),
+              ),
+            );
+
+
+          },
+          child: Container(
+            child: Center(child: Text("Calculate", style: TextStyle(fontSize: 15),)),
+            height: 60 ,
+            margin: EdgeInsets.only(top: 10),
+            color: Colors.redAccent,
+            width: double.infinity,
+          ),
+        ) ],
 
     );
   }
