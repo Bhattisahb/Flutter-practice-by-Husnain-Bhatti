@@ -48,6 +48,7 @@ class _BMIState extends State<BMI> {
   Gender? selectGender;
   int sliderheight=180;
   int sliderweight=60;
+  int sliderage=20;
   // Color malecolor = activecolor;
   // Color femalecolor = deactivecolor;
   //
@@ -183,41 +184,108 @@ class _BMIState extends State<BMI> {
         ),
 
         // Bottom row: Weight / Age cards
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                Expanded(
+    child: Row(
+    children: [
+    Expanded(
+    child: Container(
+    margin: EdgeInsets.all(15),
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    color: Colors.white10
 
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                      Text("Weight ",  style: TextStyle(fontSize: 15, color: Colors.white)),
-                  Text("$sliderweight" , style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w700),),
+    ),
+    child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    Text("Weight ",  style: TextStyle(fontSize: 15, color: Colors.white)),
+    Text("$sliderweight" , style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w700),)
+    ,
 
-                      ]
+    Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    IconButton(
+    onPressed: () {
+    setState(() {
+    sliderweight--;
+    });
+    },
+    icon: Icon(Icons.remove, color: Colors.white),
+    ),
+    IconButton(
+    onPressed: () {
+    setState(() {
+    sliderweight++;
+    });
+    },
+    icon: Icon(Icons.add, color: Colors.white),
+    ),
 
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+    ],
+    )
+
+    ],
+    ),
+
+
+    ),
+    ),
+
+    Expanded(
+    child: Container(
+    margin: EdgeInsets.all(15),
+    decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    color: Colors.white10
+
+    ),
+    child:  Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    Text("Age ",  style: TextStyle(fontSize: 15, color: Colors.white)),
+    Text("$sliderage" , style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w700),)
+    ,
+
+    Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    IconButton(
+    onPressed: () {
+    setState(() {
+    sliderage--;
+    });
+    },
+    icon: Icon(Icons.remove, color: Colors.white),
+    ),
+    IconButton(
+    onPressed: () {
+    setState(() {
+    sliderage++;
+    });
+    },
+    icon: Icon(Icons.add, color: Colors.white),
+    ),
+
+    ],
+    )
+
+    ],
+    ),
+
+
+    ),
+    )
+    ],
+    ),)
+        , Container(
+         
+          height: 60 ,
+          margin: EdgeInsets.only(top: 10),
+          color: Colors.redAccent,
+          width: double.infinity,
+        ), ],
+
     );
   }
 }
