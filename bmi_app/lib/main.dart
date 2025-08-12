@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 const activecolor = Colors.white12;
 const deactivecolor = Colors.white10;
 
+
+enum Gender  {
+  male,
+  female,
+
+}
+
 void main() {
   runApp(const MyApp());
 }
@@ -41,12 +48,12 @@ class _BMIState extends State<BMI> {
   Color malecolor = activecolor;
   Color femalecolor = deactivecolor;
 
-  void updatecolor(int gender) {
-    if (gender == 1) {
+  void updatecolor(Gender gender) {
+    if (gender == Gender.male) {
       malecolor = activecolor;
       femalecolor = deactivecolor;
     }
-    if (gender == 2) {
+    if (gender == Gender.female) {
       malecolor = deactivecolor;
       femalecolor = activecolor;
     }
@@ -64,7 +71,7 @@ class _BMIState extends State<BMI> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updatecolor(1);
+                      updatecolor(Gender.male);
                     });
                   },
                   child: Container(
@@ -92,7 +99,7 @@ class _BMIState extends State<BMI> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updatecolor(2);
+                      updatecolor(Gender.female);
                     });
                   },
                   child: Container(
