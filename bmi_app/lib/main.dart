@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -59,6 +60,16 @@ class _BMIState extends State<BMI> {
                   borderRadius: BorderRadius.circular(10),
 
                 ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.male, size: 80, color: Colors.white,),
+                    Text("MALE", style: TextStyle(fontSize: 15 , color: Colors.white),),
+
+                  ],
+                ),
+
+
               )),
               Expanded(
                 child: Container(
@@ -69,6 +80,20 @@ class _BMIState extends State<BMI> {
                     borderRadius: BorderRadius.circular(10),
 
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+
+                      Icon(Icons.female, size: 80, color: Colors.white,),
+                      Text("FEMALE", style: TextStyle(fontSize: 15 , color: Colors.white),),
+
+
+                    ],
+
+
+                  ),
+
+
                 ),
               )
 
