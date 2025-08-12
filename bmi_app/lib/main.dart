@@ -285,6 +285,9 @@ class _BMIState extends State<BMI> {
               context,
               MaterialPageRoute(
                 builder: (context) => Result(
+                  height: sliderheight,
+                  weight: sliderweight,
+
 
                 ),
               ),
