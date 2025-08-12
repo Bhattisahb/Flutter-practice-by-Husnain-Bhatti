@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text("BMI Calculator", style: TextStyle(color: Colors.white),),
@@ -41,10 +42,93 @@ class BMI extends StatefulWidget {
 class _BMIState extends State<BMI> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
+    return Column(
 
-      body: Text("Body", style: TextStyle(color: Colors.white),),
+      children: [
+
+
+        Expanded(
+          child: Row(
+            children: [
+
+              Expanded(child: Container(
+                margin: EdgeInsets.all(15),
+
+                decoration: BoxDecoration(
+                  color: Colors.white10,
+                  borderRadius: BorderRadius.circular(10),
+
+                ),
+              )),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15),
+
+                  decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(10),
+
+                  ),
+                ),
+              )
+
+            ],
+          ),
+        ),
+
+
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.all(15),
+
+            decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(10),
+
+            ),
+          ),
+        ),
+
+
+        Expanded(
+          child: Row(
+            children: [
+
+              Expanded(child: Container(
+                margin: EdgeInsets.all(15),
+
+                decoration: BoxDecoration(
+                  color: Colors.white10,
+                  borderRadius: BorderRadius.circular(10),
+
+                ),
+              )),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15),
+
+                  decoration: BoxDecoration(
+                    color: Colors.white10,
+                    borderRadius: BorderRadius.circular(10),
+
+                  ),
+                ),
+              )
+
+            ],
+          ),
+        ),
+      ],
+
+
+
+
     );
+
+
+
+
+
+
   }
 }
