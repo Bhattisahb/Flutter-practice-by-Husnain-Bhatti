@@ -45,19 +45,20 @@ class BMI extends StatefulWidget {
 }
 
 class _BMIState extends State<BMI> {
-  Color malecolor = activecolor;
-  Color femalecolor = deactivecolor;
-
-  void updatecolor(Gender gender) {
-    if (gender == Gender.male) {
-      malecolor = activecolor;
-      femalecolor = deactivecolor;
-    }
-    if (gender == Gender.female) {
-      malecolor = deactivecolor;
-      femalecolor = activecolor;
-    }
-  }
+  Gender? selectGender;
+  // Color malecolor = activecolor;
+  // Color femalecolor = deactivecolor;
+  //
+  // void updatecolor(Gender gender) {
+  //   if (gender == Gender.male) {
+  //     malecolor = activecolor;
+  //     femalecolor = deactivecolor;
+  //   }
+  //   if (gender == Gender.female) {
+  //     malecolor = deactivecolor;
+  //     femalecolor = activecolor;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +72,14 @@ class _BMIState extends State<BMI> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updatecolor(Gender.male);
+                     selectGender=Gender.male;
                     });
                   },
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: malecolor,
+                      color: selectGender==Gender.male?activecolor:deactivecolor,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -99,14 +100,14 @@ class _BMIState extends State<BMI> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      updatecolor(Gender.female);
+                      selectGender=Gender.female;
                     });
                   },
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: femalecolor,
+                      color: selectGender==Gender.female?activecolor:deactivecolor,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
