@@ -47,6 +47,7 @@ class BMI extends StatefulWidget {
 class _BMIState extends State<BMI> {
   Gender? selectGender;
   int sliderheight=180;
+  int sliderweight=60;
   // Color malecolor = activecolor;
   // Color femalecolor = deactivecolor;
   //
@@ -191,6 +192,16 @@ class _BMIState extends State<BMI> {
                   decoration: BoxDecoration(
                     color: Colors.white10,
                     borderRadius: BorderRadius.circular(10),
+                  ),
+
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      Text("Weight ",  style: TextStyle(fontSize: 15, color: Colors.white)),
+                  Text("$sliderweight" , style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w700),),
+
+                      ]
+
                   ),
                 ),
               ),
