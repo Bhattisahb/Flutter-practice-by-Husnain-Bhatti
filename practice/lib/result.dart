@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 Container buildContainer() {
   return Container(
-    height: 200,
-    width: 170,
-    color: Colors.white12,
+    margin: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      color: Colors.white12, // Visible color
+      borderRadius: BorderRadius.circular(10),
+    ),
   );
 }

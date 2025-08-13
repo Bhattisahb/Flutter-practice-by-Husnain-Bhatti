@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'result.dart';
 
-
-main(){
-
-  runApp(MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,38 +15,61 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("Bhatti App",style: TextStyle(color: Colors.white),),
+          title: const Text("HusnainBhatti App"),
         ),
-        body: Bmi(),
+        body: const BMI(),
       ),
     );
   }
 }
- class Bmi extends StatefulWidget {
-   const Bmi({super.key});
 
-   @override
-   State<Bmi> createState() => _BmiState();
- }
+class BMI extends StatefulWidget {
+  const BMI({super.key});
 
- class _BmiState extends State<Bmi> {
-   @override
-   Widget build(BuildContext context) {
-     return Column(
-       children: [
-         buildContainer(),
-         SizedBox(height: 10,),
-         buildContainer(),
+  @override
+  State<BMI> createState() => _BMIState();
+}
 
-         SizedBox(height: 10,),
+class _BMIState extends State<BMI> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // First Row
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                child: buildContainer(),
+              ),
+              Expanded(
+                child: buildContainer(),
+              ),
+            ],
+          ),
+        ),
+
+        // Middle Single Box
+        Expanded(
+          child: buildContainer(),
+        ),
+
+        // Second Row
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                child: buildContainer(),
+              ),
+              Expanded(
+                child: buildContainer(),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 
 
-       ],
-
-
-
-     );
-   }
-
-
- }
+}
